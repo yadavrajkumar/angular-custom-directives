@@ -1,0 +1,124 @@
+
+=========index.html=========
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Angular custom services</title>
+
+</head>
+<body>		<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<div class="container">
+<h1>Angular custom services</h1>
+	<div ng-controller="myController">
+		
+		{{message}}
+         <div ng-repeat="user in userArray">
+         	<techminds-project-angular-directive >
+         	
+         	</techminds-project-angular-directive>
+         </div>
+	</div>
+</div>
+<script type="text/javascript" src="https://code.angularjs.org/1.6.4/angular.js">
+         </script>
+         <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
+==================app.js===============
+var app=angular.module("myApp",[]);
+app.controller("myController",["$scope",function($scope){
+
+
+/*$scope.company="Techminds Pvt Ltd"
+
+
+
+ $scope.userArray= [
+               { employeeId : 101,
+                employeeName: "Raj",
+                 salary :5000
+               },
+               { companyId : "c100",
+                employeeName: "Techminds Learning Center",
+               },
+               { customerId : 101,
+                customerName: "Raj",
+                 prize :3000
+               }
+
+            ]
+   $scope.change=function(){
+   $scope.changeCompanyName="Techminds Solutions"*/
+//}
+
+}])
+/*app.directive("myDirectivMy",function(){
+
+   return {
+           template : "<h1>This is my custom directive </h1>"
+   }
+})*/
+app.directive("techmindsProjectAngularDirective",function(){
+
+   return {    
+
+      /*template : '<div>'+'<a href="#" class = "list-group">' +
+'<h4 class = "list-group-header"> {{companyName}} </h4>' +
+'<h4 class = "list-group"> {{userDetails.name}} </h4>' +
+'<h4 class = "list-group"> {{userDetails.address}} </h4>' +
+//'<h4 class = "list-group"> {{str}} </h4>' +
+//'<h4 class = "list-group"> {{strString}} </h4>' +
+//'<h4 class = "list-group"> {{change()}} </h4>' +
+'<input type="button" class="btn btn-primary" ng-click="change()" value="changeCompanyName">'+
+
+'</a>'+ '<div>',*/
+templateUrl : 'customerDetails.html',
+scope : {
+
+//companyName : '@',
+//str : '@',
+//strString : '@',
+//change : '&',
+
+//informationUserCustomerCompany : '='
+
+
+
+
+},
+compile: function(element,attributes){
+
+  console.log("In compile !!!")
+  console.log(element)
+  console.log(attributes)
+
+
+}
+       
+
+   }
+})
+=========customerDetails.html==============
+   <div>
+   <a href="#" class = "list-group">
+      <h4 class = "list-group-header"> {{companyName}} </h4>
+      <h4 class = "list-group-header"> {{informationUserCustomerCompany}} </h4>
+      
+
+      <!-- <h4 class = "list-group"> {{userDetails.name}} </h4>
+      <h4 class = "list-group"> {{userDetails.address}} </h4> -->
+      <!-- <h4 class = "list-group"> {{str}} </h4>
+      <h4 class = "list-group"> {{strString}} </h4>
+      <h4 class = "list-group"> {{change()}} </h4> -->
+      <input type="button" class="btn btn-primary" ng-click="change()" value="changeCompanyName">
+   </a>
+<div>
+   
+
+
+

@@ -15,8 +15,12 @@
 	<div ng-controller="myController">
 		
 		{{message}}
-         <div>
-         	<techminds-project-angular-directive></techminds-project-angular-directive>
+         <div ng-repeat="user in userArray">
+         	<techminds-project-angular-directive company-name="{{company}}" 
+           change="change()"
+         		user="user"
+         		>
+         	</techminds-project-angular-directive>
          </div>
 	</div>
 </div>
@@ -25,3 +29,4 @@
          <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
+
